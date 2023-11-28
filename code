@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+
+long long a, b, scif, r1, r2, rest, copiea;
+
+int main()
+{
+    cin >> a >> b;
+    
+    copiea = a;
+    
+    while(a > 0)
+    {
+        scif = scif + a % 10;
+        a = a / 10;
+    }
+    
+    a = copiea;
+    
+    scif = scif * b;
+    
+    r1 = scif % 9;
+    
+    if(a >= 1000)
+    {
+        a = a % 1000;
+    }
+    else if(a <= 99 and a > 9 and b >= 2)
+    {
+        a = a + (a % 10 * 100);
+    }
+    else if(a <= 9 and b >= 3)
+    {
+        a = a + a * 10 + a * 100;
+    }
+    else if(a <= 9 and b == 2)
+    {
+        a = a + a * 10;
+    }
+    
+    r2 = a % 8;
+    
+    rest = 9 * r2 - 8 * r1;
+    
+    if(rest < 0)
+    {
+        rest = rest + 72;
+    }
+    
+    cout << rest;
+
+    return 0;
+}
